@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("file:///C:/Users/User/Desktop/%D0%B9%D0%B2%D0%B9%D0%B2%D1%87%D0%B9%D1%84%D1%8F%D0%B2%D1%81.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор</h1>
+        <input type="number" id="osn" placeholder="Основной блин (квадрат)">
+        <input type="number" id="otv" placeholder="Отверстие под трубку">
+        <input type="number" id="ras" placeholder="Расстояние между отверстиями">
+        <input type="number" id="kra" placeholder="Расстояние до края">
+        <button onclick="calculate()">Рассчитать</button>
+        
+        <h2>Результат:</h2>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        function calculate() {
+            var osn = parseInt(document.getElementById("osn").value);
+            var otv = parseInt(document.getElementById("otv").value);
+            var ras = parseInt(document.getElementById("ras").value);
+            var kra = parseInt(document.getElementById("kra").value);
+            
+            var dost_d = osn - 2 * kra;
+            var kolvo = dost_d / (otv + ras);
+            kolvo = parseInt(kolvo);
+            var answer = kolvo ** 2;
+            
+            document.getElementById("result").textContent = `Результат: ${answer}`;
+        }
+    </script>
+</body>
+</html>
